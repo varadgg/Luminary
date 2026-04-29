@@ -14,7 +14,7 @@ export default function Admin() {
     const fetchRegistrations = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await fetch('http://localhost:5000/api/registrations', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/registrations`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
