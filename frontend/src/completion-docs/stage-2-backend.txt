@@ -1,0 +1,28 @@
+# Stage 2: Fullstack Setup & Backend Development
+
+## Project Restructuring
+-   The project has successfully been transitioned from a simple Vite React app into a Mono-repo style **Fullstack Application**.
+-   The original React frontend source code has been isolated into the `/frontend` directory.
+-   A new dedicated `/backend` directory was created to house the Node.js API.
+
+## Backend Infrastructure (Node.js + Express)
+-   Initialized a new Node environment inside `/backend`.
+-   Configured a robust `server.js` using `express`, `cors`, and `express.json()` middlewares.
+-   Environmental variables (`PORT=5000` and `MONGO_URI`) securely mapped via `dotenv`.
+
+## Database Integration (MongoDB)
+-   Implemented a `config/db.js` file leveraging Mongoose to establish a connection to MongoDB.
+-   Created the `Registration.js` data model within `/models` incorporating all mandatory fields: `name`, `mobile`, `email`, `domain`, `college`, `city`, and `createdAt`.
+
+## API Development
+-   Constructed the `/api/register` POST endpoint inside `routes/registrationRoutes.js`.
+-   Implemented `registrationController.js` logic to validate incoming requests strictly and save valid entries directly into the MongoDB database.
+-   Robust error handling logs events on the backend and transmits clear success/error JSON payloads back to the client.
+
+## Frontend Integration
+-   Overhauled `RegistrationFormSection.jsx` within the frontend to become fully interactive.
+-   Tied form inputs to React state variables (`useState`).
+-   Implemented a smooth API `fetch` call upon form submission to `http://localhost:5000/api/register`.
+-   Added localized user feedback (Success/Error banner messages) and loading states (`Submitting...`) to prevent spamming.
+
+**Status**: The platform is now capable of securely capturing user registration intent into a persistent database instance.

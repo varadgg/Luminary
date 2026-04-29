@@ -1,0 +1,19 @@
+# Stage 3: Form UX & Visual Enhancement
+
+## Container Upgrades
+- Applied a frosted glass aesthetic using `bg-gradient-to-b`, `backdrop-blur-xl`, and an aggressive structural shadow (`shadow-[0_0_60px_rgba(0,0,0,0.6)]`) to lift the form off the background.
+
+## Semantic Grouping
+- Segregated the unstructured form into three distinct logical groups: "Personal Information", "Course Selection", and "Education Information".
+- Wrapped each group in subtle borders (`border-white/5`) with nested padding to create a clean, highly scannable visual hierarchy.
+
+## Premium Inputs & Labels
+- Labels now feature a micro-typography design (`text-[10px] uppercase tracking-[2px]`) with a `group-focus-within:text-purple-400` interaction that highlights the label when its respective input is focused.
+- Inputs received an inner shadow (`shadow-inner shadow-black/30`), a custom translucent backdrop (`bg-white/5`), and an intense glowing focus ring (`focus:shadow-[0_0_15px...]`).
+- Added a custom absolute-positioned `expand_more` icon to the native Select dropdown to overwrite the default browser styling.
+
+## Micro-Interactions & Trust Signals
+- Upgraded the Certification Guarantee section with a gold gradient and glowing shadow to act as a stronger "trust signal".
+- Replaced the Start Learning button with a multi-stop gradient (`purple-500` to `cyan-500`), intense hover scaling (`scale-[1.03]`), and a spinning loading animation during submission.
+
+**Goal Achieved**: The form now looks and acts like a premium, high-conversion enterprise product while maintaining its dark mode origins.

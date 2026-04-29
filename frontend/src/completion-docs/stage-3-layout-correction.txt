@@ -1,0 +1,17 @@
+# Stage 3: Layout Correction & Height Optimization
+
+## Removed Sticky Layout
+- Completely removed the `lg:sticky`, `lg:top-24`, `max-h`, and `overflow-y-auto` classes from the registration form wrapper.
+- The layout is now a strict side-by-side grid (`grid-cols-1 lg:grid-cols-2`) that behaves like a solid, fixed landing page without any internal scrolling mechanisms.
+
+## Form Compression & Viewport Fit
+- Decreased internal form padding (`p-6` down to `p-4`) to save vertical real estate.
+- Reduced inter-element spacing to `space-y-3` and gaps to `gap-3` ensuring the entire form fits comfortably inside an ~85vh envelope.
+- Scaled down the header margins (`mb-6` to `mb-4`) and input padding to enforce a highly dense but beautifully usable form.
+
+## Horizontal Alignment
+- Synchronized the form and left-hand text by applying `items-center` on the parent grid, ensuring both columns begin and end on the same vertical plane naturally.
+- Stripped unnecessary bottom margins from the `RegistrationLeftSection` (`mb-10` down to `mb-6`) so the left content mimics the tight visual footprint of the right-hand form.
+- Applied `overflow-x-hidden` to prevent any bleed across viewports.
+
+**Goal Achieved**: The page now acts as a premium, immediate-conversion landing page. The user sees the entire form immediately upon load without needing to scroll.

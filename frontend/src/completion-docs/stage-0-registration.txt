@@ -1,0 +1,36 @@
+# Stage 0: Registration Page Structuring
+
+## Folder Structure Created
+`src/`
+  `components/`
+    `registration/`
+      `- RegistrationHeader.jsx`
+      `- RegistrationLeftSection.jsx`
+      `- RegistrationFormSection.jsx`
+      `- RegistrationFooter.jsx`
+  `pages/`
+    `- Register.jsx`
+
+## Components Overview
+1.  **RegistrationHeader**: Top navigation bar with logo and links specific to the registration flow.
+2.  **RegistrationLeftSection**: The left side containing the promotional copy, metrics, and branding image.
+3.  **RegistrationFormSection**: The right side containing the enrollment form.
+4.  **RegistrationFooter**: The footer for the registration page.
+
+## Confirmation
+-   **No UI Changes**: The React components preserve the original HTML layout, Tailwind utility classes, text content, and structure perfectly.
+-   `class` attributes have been safely converted to `className`.
+-   Empty `style=""` attributes have been removed.
+-   Specific inline styles like `style="font-variation-settings: 'FILL' 1;"` were safely translated to React style objects: `style={{ fontVariationSettings: "'FILL' 1" }}`.
+-   The `<select>` field option's `selected=""` attribute was replaced with a `defaultValue=""` on the parent `<select>` for proper React controlled/uncontrolled component behavior.
+
+## Form Handling Notes
+The `RegistrationFormSection` currently features a placeholder React `onSubmit` handler:
+```javascript
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // Placeholder for form submission logic
+  console.log("Form submitted");
+};
+```
+No backend logic or external libraries have been incorporated. The structure is fully prepared for state management (e.g., useState or react-hook-form) to be added at a later stage.

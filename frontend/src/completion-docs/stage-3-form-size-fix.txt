@@ -1,0 +1,19 @@
+# Stage 3: Form Size Fix & Compression
+
+## Form Dimensions
+- Replaced the wide `<div className="w-full max-w-lg mx-auto">` wrapper with a tighter `<div className="w-full max-w-md max-h-[85vh]">`.
+- Removed `mx-auto` completely to guarantee that the form stays pinned to the right-hand column rather than floating uncomfortably in the center of its grid cell.
+- Added a strict `max-h-[85vh]` constraint on the form itself (without scrolling) to ensure it acts as a reliable sizing bound.
+
+## Interior Height Reduction
+- Scaled down exterior paddings (`p-6` to `p-5`) and section group paddings (`p-3` to `p-2.5`) to save horizontal and vertical real estate.
+- Reduced inter-element `space-y` values (`space-y-3` down to `space-y-2.5` and `space-y-2`) and grid gaps (`gap-3` to `gap-2.5`).
+- Compacted all input fields by reducing vertical padding (`py-2` to `py-1.5`) and decreasing base font sizes (`text-[13px]`).
+- Minimized label text size (`text-[8px]`) to maintain readability while utilizing the smallest possible footprint.
+
+## Element Adjustments
+- Shrunk the Certificate Guarantee Card padding (`p-2.5`) and internal text sizing (`text-[9px]`).
+- Reduced the CTA Button height (`py-2.5`).
+- Pulled up bottom margins (`mt-4` to `mt-3`) on elements separated from the main groups.
+
+**Goal Achieved**: The form is now extremely compact, completely visible above the fold on typical screens, properly right-aligned to match the hero text, and feels blisteringly fast to fill out.

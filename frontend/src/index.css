@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==============================
+   Material Symbols
+   ============================== */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ==============================
+   Custom utility classes (Home page)
+   ============================== */
+.glass-card {
+  background: rgba(34, 38, 43, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(208, 149, 255, 0.3);
+}
+
+.neon-border-glow:hover {
+  box-shadow: 0 0 20px rgba(208, 149, 255, 0.2);
+}
+
+/* ==============================
+   THEME: Home Page
+   ============================== */
+:root,
+.theme-home {
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-primary: 208, 149, 255;
+  --color-on-primary: 73, 0, 120;
+  --color-primary-container: 199, 130, 255;
+  --color-on-primary-container: 56, 0, 94;
+  --color-primary-fixed: 199, 130, 255;
+  --color-primary-fixed-dim: 189, 110, 254;
+  --color-on-primary-fixed: 0, 0, 0;
+  --color-on-primary-fixed-variant: 69, 0, 115;
+  --color-primary-dim: 197, 126, 255;
+  --color-inverse-primary: 133, 52, 196;
+
+  --color-secondary: 0, 210, 253;
+  --color-on-secondary: 0, 67, 82;
+  --color-secondary-container: 0, 103, 126;
+  --color-on-secondary-container: 238, 250, 255;
+  --color-secondary-fixed: 121, 223, 255;
+  --color-secondary-fixed-dim: 28, 213, 255;
+  --color-on-secondary-fixed: 0, 58, 71;
+  --color-on-secondary-fixed-variant: 0, 88, 108;
+  --color-secondary-dim: 0, 195, 235;
+
+  --color-tertiary: 255, 151, 178;
+  --color-on-tertiary: 106, 10, 49;
+  --color-tertiary-container: 254, 129, 164;
+  --color-on-tertiary-container: 90, 0, 39;
+  --color-tertiary-fixed: 255, 142, 172;
+  --color-tertiary-fixed-dim: 247, 124, 158;
+  --color-on-tertiary-fixed: 56, 0, 22;
+  --color-on-tertiary-fixed-variant: 113, 16, 54;
+  --color-tertiary-dim: 241, 119, 153;
+
+  --color-background: 12, 14, 18;
+  --color-on-background: 248, 249, 254;
+  --color-surface: 12, 14, 18;
+  --color-on-surface: 248, 249, 254;
+  --color-surface-dim: 12, 14, 18;
+  --color-surface-bright: 40, 44, 50;
+  --color-surface-container-lowest: 0, 0, 0;
+  --color-surface-container-low: 17, 20, 23;
+  --color-surface-container: 23, 26, 30;
+  --color-surface-container-high: 28, 32, 37;
+  --color-surface-container-highest: 34, 38, 43;
+  --color-surface-variant: 34, 38, 43;
+  --color-on-surface-variant: 169, 171, 176;
+  --color-surface-tint: 208, 149, 255;
+
+  --color-outline: 115, 117, 122;
+  --color-outline-variant: 70, 72, 76;
+  --color-inverse-surface: 248, 249, 254;
+  --color-inverse-on-surface: 83, 85, 89;
+
+  --color-error: 255, 110, 132;
+  --color-on-error: 73, 0, 19;
+  --color-error-container: 167, 1, 56;
+  --color-on-error-container: 255, 178, 185;
+  --color-error-dim: 215, 51, 87;
+}
+
+/* ==============================
+   THEME: Courses Page
+   ============================== */
+.theme-courses {
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  --color-primary: 192, 193, 255;
+  --color-on-primary: 16, 0, 169;
+  --color-primary-container: 128, 131, 255;
+  --color-on-primary-container: 13, 0, 150;
+  --color-primary-fixed: 225, 224, 255;
+  --color-primary-fixed-dim: 192, 193, 255;
+  --color-on-primary-fixed: 7, 0, 108;
+  --color-on-primary-fixed-variant: 47, 46, 190;
+  --color-primary-dim: 192, 193, 255;
+  --color-inverse-primary: 73, 75, 214;
+
+  --color-secondary: 137, 206, 255;
+  --color-on-secondary: 0, 52, 77;
+  --color-secondary-container: 0, 162, 230;
+  --color-on-secondary-container: 0, 52, 78;
+  --color-secondary-fixed: 201, 230, 255;
+  --color-secondary-fixed-dim: 137, 206, 255;
+  --color-on-secondary-fixed: 0, 30, 47;
+  --color-on-secondary-fixed-variant: 0, 76, 110;
+  --color-secondary-dim: 137, 206, 255;
+
+  --color-tertiary: 221, 183, 255;
+  --color-on-tertiary: 73, 0, 128;
+  --color-tertiary-container: 183, 109, 255;
+  --color-on-tertiary-container: 64, 0, 113;
+  --color-tertiary-fixed: 240, 219, 255;
+  --color-tertiary-fixed-dim: 221, 183, 255;
+  --color-on-tertiary-fixed: 44, 0, 81;
+  --color-on-tertiary-fixed-variant: 105, 0, 179;
+  --color-tertiary-dim: 221, 183, 255;
+
+  --color-background: 15, 19, 28;
+  --color-on-background: 223, 226, 239;
+  --color-surface: 15, 19, 28;
+  --color-on-surface: 223, 226, 239;
+  --color-surface-dim: 15, 19, 28;
+  --color-surface-bright: 53, 57, 67;
+  --color-surface-container-lowest: 10, 14, 23;
+  --color-surface-container-low: 24, 27, 37;
+  --color-surface-container: 28, 31, 41;
+  --color-surface-container-high: 38, 42, 52;
+  --color-surface-container-highest: 49, 53, 63;
+  --color-surface-variant: 49, 53, 63;
+  --color-on-surface-variant: 199, 196, 215;
+  --color-surface-tint: 192, 193, 255;
+
+  --color-outline: 144, 143, 160;
+  --color-outline-variant: 70, 69, 84;
+  --color-inverse-surface: 223, 226, 239;
+  --color-inverse-on-surface: 44, 48, 58;
+
+  --color-error: 255, 180, 171;
+  --color-on-error: 105, 0, 5;
+  --color-error-container: 147, 0, 10;
+  --color-on-error-container: 255, 218, 214;
+  --color-error-dim: 255, 180, 171;
+}

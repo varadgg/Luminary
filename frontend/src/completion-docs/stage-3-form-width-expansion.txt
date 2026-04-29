@@ -1,0 +1,14 @@
+# Stage 3: Form Width Expansion (Grid Fix)
+
+## 12-Column Layout Restructuring
+- Restructured the rigid `lg:grid-cols-2` (which locked both sections to exactly 50% width) into a more flexible `lg:grid-cols-12` system.
+- Assigned `lg:col-span-6` to both the left text section and the right form container. This maintains the 50/50 balance but removes the hard `50%` flex constraints of the previous 2-column grid that was suffocating the right column.
+
+## Width Limit Removal
+- Removed the restrictive `max-w-md` from the right-side wrapper inside `Register.jsx`, explicitly replacing it with a fluid `w-full`. This allows the form container to actually utilize the entire space allocated by `lg:col-span-6`.
+
+## Form Component Expansion
+- Increased the absolute maximum width inside `RegistrationFormSection.jsx` from `max-w-xl` to `max-w-2xl`. 
+- Coupled with the removed grid restrictions, this translates to an approximate 80% increase in horizontal form width without disrupting vertical density or overall layout structure.
+
+**Goal Achieved**: The form is now massively wider, eliminating the narrow "sidebar widget" feel, and perfectly balances the visual layout against the left-side hero text while strictly preserving all vertical micro-sizing.

@@ -1,0 +1,15 @@
+# Stage 4.5: System Consistency & Refinements
+
+## 1. Authentication Updates
+- **Admin Setup Route**: Renamed `POST /api/auth/register` to `POST /api/auth/create-admin` to eliminate semantic confusion with student registration.
+- **Hardcoded Admin Access**: Configured `.env` to support `ADMIN_EMAIL` and `ADMIN_PASSWORD`. Updated the login controller to allow bypassing DB checks for these master credentials, granting instant dashboard access without manual DB seeding.
+
+## 2. Registration Enhancements
+- **Application ID Generation**: Designed a unique ID generator (`LUM-YYYY-XXXX`) inside the backend registration controller. Updated the Mongoose `Registration` model to store this `applicationId`.
+- **Success Modal UI**: Replaced the small text success message with a premium, full-screen glassmorphism modal. It dynamically displays the generated `applicationId` to the user and prompts them to save it.
+
+## 3. UI and Dashboard Connectivity
+- **Dashboard Visibility**: Updated `AdminTable.jsx` to inject a new "Application ID" column, giving admins immediate context. 
+- **Landing Page CTA**: Replaced the static "5" circle in the About page (`ProcessSection.jsx`) with a fully functional `<Link to="/login">Get Hired</Link>` CTA, seamlessly bridging the public marketing page to the secure admin area.
+
+**Goal Achieved**: The system now provides clear, trustworthy feedback to registering users (via Application IDs) and improves backend maintainability through dedicated master credentials.

@@ -1,0 +1,12 @@
+# Stage 3: Top-Down Alignment Fix
+
+## Vertical Axis Synchronization
+- Completely stripped out any `items-center` properties acting on the `Register.jsx` parent layout container.
+- Applied rigid `items-start` alignment constraints to the master grid, guaranteeing that the baseline of the left-hand hero text and the top-border of the form's glass container render on the exact same vertical plane.
+
+## Structural Adjustments
+- Replaced the central centering wrapper inside `Register.jsx` with `<div className="flex justify-end items-start">`, forcing the form to anchor itself identically to the textual content.
+- Restructured the internal flex layout of `RegistrationLeftSection` by changing `justify-between` to `justify-start`. This allows the text to flow naturally downwards from the top rather than spreading to fill an arbitrary height, perfectly aligning it with the form's starting Y-axis.
+- Prevented the form from exhibiting any unnatural vertical drift by verifying the absence of negative or positive top margins.
+
+**Goal Achieved**: The Registration page no longer feels like a floating hero section. It reads sequentially as a pure, focused landing page where the primary value proposition text leads linearly right into the first field of the application form without vertical friction.
