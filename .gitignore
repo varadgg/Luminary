@@ -1,15 +1,10 @@
 node_modules/
-
-# Environment variables
+**/node_modules/
 .env
 .env.local
 .env.production
-
-# Build output
-frontend/dist/
-backend/dist/
-
-# OS / Editor
+dist/
+**/dist/
 .DS_Store
 Thumbs.db
 .vscode/
