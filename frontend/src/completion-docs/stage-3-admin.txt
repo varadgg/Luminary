@@ -1,0 +1,18 @@
+# Stage 3: Admin Dashboard & Data Visibility
+
+## API Enhancement
+-   Implemented `getAllRegistrations` controller function on the backend to fetch all stored MongoDB records sorted by creation date.
+-   Added new route `GET /api/registrations` to expose the student enrollment data to the client.
+
+## Admin Dashboard Pages
+-   Created `src/pages/Admin.jsx` serving as the main entry point for the dashboard.
+-   Added `/admin` route in `main.jsx`.
+-   Implemented a lightweight `AdminHeader.jsx` to replace the main site Navbar and reflect the admin-only context.
+
+## Data Visualization & Tooling
+-   Built `src/components/admin/AdminTable.jsx` to parse and render complex registration objects into an organized UI.
+-   Included columns: Name, Email, Mobile, Domain, College, City, and formatted Date.
+-   Integrated a robust real-time search functionality directly within `Admin.jsx` that cross-references both Name and Email fields seamlessly without re-querying the backend.
+-   Utilized React's `useEffect` pattern to gracefully handle loading spinners, empty states, and server connectivity error alerts.
+
+**Status**: The platform now possesses internal visibility, allowing administrators to monitor live user conversions successfully.

@@ -1,0 +1,18 @@
+# Stage 4: Authentication & Security
+
+## 1. Backend Security Layer
+- **Dependencies**: Integrated `bcryptjs` and `jsonwebtoken` for secure cryptographic operations.
+- **Admin Model**: Created `backend/models/Admin.js` featuring an email and password schema. Implemented a `pre-save` hook to automatically hash passwords using `bcrypt` before database insertion. Added a `matchPassword` method for secure validation.
+- **Authentication API**:
+  - `POST /api/auth/login`: Validates credentials, checks hashes, and generates a signed JWT payload valid for 30 days.
+  - `POST /api/auth/register`: Temporary provisioning route established to bootstrap the initial admin account.
+- **JWT Middleware**: Created `backend/middleware/authMiddleware.js` to intercept incoming requests, extract the Bearer token, verify the signature against the server's `JWT_SECRET`, and reject unauthorized requests.
+- **Route Protection**: Attached the auth middleware to `GET /api/registrations`, ensuring sensitive user data is absolutely inaccessible to unauthenticated entities.
+
+## 2. Frontend Security & UX
+- **Protected Routing**: Created `ProtectedRoute.jsx` which acts as a client-side gatekeeper. It checks for a valid `adminToken` in `localStorage`; if absent, it actively redirects intruders to the `/login` portal.
+- **Login Portal**: Designed and implemented `Login.jsx` to perfectly match Luminary's dark, premium aesthetic. It features interactive glassmorphism inputs, loading states, and robust error handling. On success, it securely stores the token and redirects to the dashboard.
+- **API Wiring**: Updated the Admin dashboard's data fetching logic (`Admin.jsx`) to automatically inject the Bearer token into the Authorization header of the `fetch` request.
+- **Session Management**: Added a functional "Logout" button inside the `AdminHeader.jsx` that instantly destroys the local token and kicks the user back to the login screen.
+
+**Goal Achieved**: The application has successfully transitioned from an open "working app" into a secure, production-ready system with industry-standard JWT authentication and role-based access control.

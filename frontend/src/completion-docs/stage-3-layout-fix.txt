@@ -1,0 +1,17 @@
+# Stage 3: Layout Fix & Sticky Behavior
+
+## Viewport Height Optimization
+- Rebuilt the main structure in `Register.jsx` using a `<section className="min-h-screen flex items-center justify-center">` to ensure the layout is anchored properly regardless of viewport height.
+- Implemented `max-h-[calc(100vh-120px)]` and `overflow-y-auto` strictly on the form container. This ensures that only the form scrolls internally if the viewport is too small, completely eliminating full-page layout breaking.
+
+## Sticky Layout Implementation
+- Disconnected the form from the standard document flow on desktop by wrapping it in `lg:sticky lg:top-24`.
+- The left-side content area now scrolls naturally behind the form, allowing users to reference all guarantees and content while the form remains fully visible on the right.
+- This sticky behavior is explicitly disabled on mobile (`lg:sticky`) so that the form stacks naturally underneath the content on smaller screens.
+
+## Alignment & Overflow Fixes
+- Removed erroneous `mt-*` classes from `RegistrationFormSection` that were artificially pushing the form down and breaking alignment.
+- Added `pt-24` offset to the main wrapper to gracefully handle the fixed Navbar without cutting off content.
+- Enforced horizontal scroll prevention on the root container.
+
+**Goal Achieved**: The layout now mimics a premium SaaS onboarding experience—the form stays locked in the user's viewport on desktop, fits perfectly, and never causes layout shifts.

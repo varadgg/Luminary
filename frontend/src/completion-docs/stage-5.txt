@@ -1,0 +1,171 @@
+=====================================
+STAGE 5 COMPLETION DOCUMENT
+Scroll Storytelling Animation System
+=====================================
+
+COMPLETION DATE: April 19, 2026
+STATUS: ✅ COMPLETE
+
+=====================================
+1. SCROLL ANIMATION SYSTEM
+=====================================
+
+  Architecture: useScroll + useTransform (FULLY REVERSIBLE)
+  
+  ❌ REMOVED: whileInView, viewport={{ once: true }}
+  ✅ IMPLEMENTED: scroll-progress-driven transforms
+  
+  Hook: src/hooks/useScrollAnimation.js
+    - Reusable across all sections
+    - Returns: ref, opacity, y, scale, scrollYProgress
+    - Uses target-based scroll tracking
+    - offset: ["start end", "end start"]
+    - Default range: [0, 0.4]
+
+=====================================
+2. SECTIONS ANIMATED (ALL 7)
+=====================================
+
+  1. HeroSection (Fade Up)
+     - Fades out + moves up as user scrolls past
+     - Image: subtle parallax scale (1 → 1.08)
+     - "Actually" keyword: infinite brightness glow pulse
+     - Buttons: whileHover/whileTap micro-interactions
+
+  2. ProblemSection (Fade + Slide)
+     - Uses useScrollAnimation hook [0, 0.35]
+     - Entire section: opacity + y transform
+     - Fully reversible on scroll up
+
+  3. StorySection (Slide Left/Right)
+     - Image slides from left (x: -80 → 0)
+     - Text slides from right (x: 60 → 0)
+     - Both driven by scrollYProgress
+     - Creates visual rhythm alternation
+
+  4. SolutionSection (Scale + Stagger)
+     - Heading: scale(0.92→1) + fade + y-slide
+     - 4 cards with OFFSET scroll ranges:
+       Card 1: [0.10, 0.35]
+       Card 2: [0.15, 0.40]
+       Card 3: [0.20, 0.45]
+       Card 4: [0.25, 0.50]
+     - Creates cascading reveal that reverses on scroll up
+     - Cards: color-matched neon box-shadow on hover
+
+  5. CoursesSection (Grid Reveal)
+     - Header: slides from left (x: -50 → 0)
+     - "View All" link: slides from right (x: 30 → 0)
+     - 3 course cards: staggered y-slide with offset ranges
+     - Mini cards: scale(0.92→1) + opacity fade
+     - All Enroll buttons: whileHover/whileTap
+
+  6. MissionSection (Soft Fade)
+     - Uses useScrollAnimation hook [0, 0.3]
+     - Entire section: opacity + y transform
+     - Stat cards: spring-based hover scale(1.04)
+
+  7. FinalCTASection (Glow + Pulse)
+     - Container: scale(0.9→1) + y-slide + opacity
+     - Join Now button: INFINITE pulsing neon box-shadow
+       Cycles: 10px → 40px → 10px (rgba 168,85,247)
+     - Duration: 2s, infinite repeat
+
+=====================================
+3. REVERSIBLE ANIMATIONS ✅
+=====================================
+
+  ALL animations are driven by useTransform:
+  - Scroll DOWN → section appears (opacity 0→1, y 80→0)
+  - Scroll UP → section disappears (opacity 1→0, y 0→80)
+  - No "once: true" — animations replay on every scroll pass
+  - Smooth, continuous interpolation (not keyframe-based)
+
+=====================================
+4. HOOK CREATED
+=====================================
+
+  File: src/hooks/useScrollAnimation.js
+  
+  Parameters:
+    range (Array): scroll progress mapping [start, end]
+  
+  Returns:
+    ref: attach to section element
+    opacity: 0→1 mapped to scroll range
+    y: 80→0 mapped to scroll range
+    scale: 0.95→1 mapped to scroll range
+    scrollYProgress: raw progress value
+
+=====================================
+5. STAGGER ANIMATION
+=====================================
+
+  SolutionSection & CoursesSection use MANUAL stagger:
+  - Each card has individually offset useTransform ranges
+  - Cards reveal sequentially as scroll progresses
+  - Stagger gap: ~0.05 scroll progress per card
+  - Fully reversible — cards hide in reverse order on scroll up
+
+=====================================
+6. TEXT REVEAL
+=====================================
+
+  - Section headings: driven by opacity + y from useTransform
+  - Hero heading: driven by scroll-based fade-out
+  - "Actually" glow: infinite brightness pulse (non-scroll)
+  - CTA "Here.": enters with container scale animation
+
+=====================================
+7. PERFORMANCE OPTIMIZATIONS
+=====================================
+
+  - Only GPU-friendly transforms: opacity, translate, scale
+  - No blur animations on scroll (expensive)
+  - No state-driven re-renders — all transforms via motion values
+  - Parallax glows use useTransform (not setState)
+  - Fixed position parallax layer: pointer-events-none
+  - Transitions kept under 0.8s (most are scroll-driven, instant)
+
+=====================================
+8. PARALLAX SYSTEM (PRESERVED)
+=====================================
+
+  Home.jsx parallax glows preserved exactly:
+  - 3 fixed floating orbs with independent scroll speeds
+  - Glow 1: purple-500/10, speed -300px
+  - Glow 2: cyan-400/10, speed -180px
+  - Glow 3: purple-400/10, speed -450px
+
+=====================================
+9. STORY FLOW STRUCTURE
+=====================================
+
+  Section      | Animation Type    | Direction
+  -------------|-------------------|----------
+  Hero         | Fade up (exit)    | Vertical
+  Problem      | Fade + delay      | Vertical
+  Story        | Slide left/right  | Horizontal
+  Solution     | Scale + stagger   | Vertical cascade
+  Courses      | Grid reveal       | Mixed (H + V)
+  Mission      | Soft fade         | Vertical
+  CTA          | Glow + pulse      | Scale + infinite
+
+=====================================
+10. FILES MODIFIED
+=====================================
+
+  NEW:
+    src/hooks/useScrollAnimation.js
+
+  MODIFIED:
+    src/pages/Home.jsx
+    src/components/home/HeroSection.jsx
+    src/components/home/ProblemSection.jsx
+    src/components/home/StorySection.jsx
+    src/components/home/SolutionSection.jsx
+    src/components/home/CoursesSection.jsx
+    src/components/home/MissionSection.jsx
+    src/components/home/FinalCTASection.jsx
+
+=====================================

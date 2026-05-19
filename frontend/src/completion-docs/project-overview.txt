@@ -1,0 +1,77 @@
+# Luminary Platform - Project Overview
+
+## Project Status: Stage 1 Completed (Frontend Structuring & Cleanup)
+
+### 1. Frontend UI: 100% Complete
+All five primary pages have been successfully converted from their original HTML designs into modular React components with pixel-perfect accuracy, preserving the original Tailwind styling, grid layouts, and visual effects (glassmorphism, ambient shadows).
+
+**Pages Built:**
+1.  **Home** (`src/pages/Home.jsx`): The main landing page with dynamic hero section and featured curriculum.
+2.  **Courses** (`src/pages/Courses.jsx`): The course catalog and search interface.
+3.  **Registration** (`src/pages/Register.jsx`): The student enrollment form layout.
+4.  **Benefits** (`src/pages/Benefits.jsx`): The program structure, timelines, and affordability details.
+5.  **About** (`src/pages/About.jsx`): The founding story, differentiation, and team details.
+
+### 2. Component Architecture & Cleanup
+-   **Modular Sections**: Every page is composed of distinct, isolated section components housed in their respective directories (e.g., `src/components/home/`, `src/components/about/`).
+-   **Shared Components**: Duplication has been eliminated by creating `Navbar.jsx` and `Footer.jsx` inside `src/components/shared/`.
+-   **Theming & State**: The `Navbar` and `Footer` utilize an `activePage` prop to dynamically render design variations (Home vs Courses styling) and accurately reflect active link states.
+
+## Stage 1: Routing & Navigation
+-   React Router implemented for client-side routing.
+-   All primary pages (`/`, `/courses`, `/benefits`, `/about`, `/register`) seamlessly connected.
+-   Navigation operates entirely via Single Page Application (SPA) architecture, completely eliminating page reloads.
+-   `Navbar` integrated with React Router `<Link>` components and dynamic route highlighting.
+
+## Stage 2: Backend Development
+-   Backend (Node.js + Express) created inside the `backend/` directory.
+-   MongoDB successfully connected via Mongoose data models.
+-   Registration API (`POST /api/register`) securely implemented with data validation.
+-   Frontend `RegistrationFormSection` fully wired to the backend, enabling live database insertions with UX feedback handling.
+
+## Stage 3: Admin Dashboard & UX Refinements
+- Registration data retrieval API (`GET /api/registrations`) created on backend.
+- Admin dashboard (`/admin`) implemented on frontend to interface with real database records.
+- Data visualization added via clean, dark-themed Tailwind tables with client-side name/email filtering.
+- **Form UX Refinements**: Improved form UI hierarchy, added section grouping (Personal, Course, Education), enhanced CTA visibility with dynamic gradients, and drastically improved input interactions with premium glassmorphism and neon hover/focus states.
+- **Micro-Sizing & Fit**: The registration form was aggressively squashed vertically to perfectly fit within an `85vh` viewport constraint. Reduced input padding (`py-1.5`), shrunk label text (`text-[8px]`), tightened group spacing (`space-y-2.5`), and explicitly pinned the form to the right side of its container (removed `mx-auto`) to achieve a rapid-conversion UI that requires absolute zero scrolling.
+- **Top-Down Alignment Correction**: Replaced landing-page style centering with absolute top-down alignment. Removed `items-center` from the parent grid and applied strict `items-start` across `Register.jsx` and `RegistrationLeftSection` to ensure the form container aligns perfectly with the main "You're not just enrolling..." headline, creating a seamless, one-line visual flow.
+- **Form Width Expansion (Grid Fix)**: Reproportioned the page layout from a strict 2-column split to a flexible 12-column grid (`lg:grid-cols-12`). Stripped away hard-coded `max-w-md` constraints on the right side and upgraded the form container to `max-w-2xl`. This successfully expanded the form horizontally by ~80%, creating a balanced, commanding, premium UI without increasing the vertical footprint by a single pixel.
+
+## Stage 4: Authentication & Security
+- **JWT Backend Logic**: Installed `bcryptjs` and `jsonwebtoken`. Created the `Admin` Mongoose model with automatic password hashing. Implemented `/api/auth/login` to distribute secure tokens and created `authMiddleware.js` to strictly protect sensitive backend routes (`GET /api/registrations`).
+- **Protected Client Routes**: Implemented `ProtectedRoute.jsx` to wrap the `/admin` route on the frontend, enforcing a strict redirect to `/login` for unauthenticated visitors.
+- **Login Portal & Session Management**: Built a premium, dark-themed `Login.jsx` interface. Updated the `Admin.jsx` dashboard to authenticate its API requests using Bearer headers, and integrated a one-click Logout system inside `AdminHeader.jsx`.
+
+## Stage 4.5: System Consistency & Refinements
+- **Auth Integrity**: Re-routed admin creation to `/api/auth/create-admin`. Implemented a robust `.env` fallback system allowing hardcoded master credentials (`ADMIN_EMAIL` & `ADMIN_PASSWORD`) to securely generate JWTs without database seeding.
+- **Application ID Generation**: The backend now issues unique `applicationId` strings upon successful registration.
+- **Frontend Refinements**: Built a premium success modal that displays the new Application ID to users. Exposed this ID in the Admin Dashboard table, and wired the About page's final step into a direct CTA to the `/login` portal.
+
+## Current Status Update
+-   **Frontend UI**: Complete, Layout Optimized, & Premium Hierarchy Refined
+-   **Routing**: Protected & Secure
+-   **Backend**: Secured with JWT Middleware
+-   **Database**: Active (Admin & Registration Collections)
+-   **Admin Panel**: Fully Secured & Functional
+**Authentication & Security**
+
+## Stage 5: Scroll Storytelling System Implemented
+- Reversible scroll animations added (NO whileInView / once:true)
+- useScroll + useTransform integration across all 7 home sections
+- Created reusable useScrollAnimation hook (src/hooks/useScrollAnimation.js)
+- Section-based storytelling: Hero(fade) → Problem(fade+delay) → Story(slide L/R) → Solution(scale+stagger) → Courses(grid reveal) → Mission(soft fade) → CTA(glow+pulse)
+- Parallax depth system: 3 floating ambient glow orbs preserved
+- Premium interaction design: spring-based hover, whileTap, infinite CTA glow pulse
+- Performance: GPU-only transforms (opacity, translate, scale), no blur on scroll
+- Dependency: framer-motion@12.38.0
+
+## Stage 6: System Refinement & UX Optimization
+- Admin dashboard enhanced (Split Email/Mobile columns)
+- Excel export added via xlsx & file-saver
+- Navigation fixed via ScrollToTop wrapper (no more mid-page landing)
+- Course system expanded to 12 new premium paths
+- Search system implemented in Courses page
+- Scroll behavior corrected
+- CTA linking standardized to proper React Router Links
+- Mobile Hamburger Navigation added to Navbar with slide-in animation and background scroll lock

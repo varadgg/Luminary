@@ -1,0 +1,17 @@
+# Stage 3: Form UI Refinement
+
+## Vertical Alignment & Overflow Fixes
+- The main `<main>` wrapper inside `Register.jsx` now utilizes `flex items-center`, guaranteeing that the layout is perfectly vertically centered regardless of screen height.
+- Replaced rigid height constraints with responsive `min-h-screen`, ensuring the layout never forces unnatural scrolling or clips content if the form extends beyond the vertical viewport bounds.
+
+## Form Container Tweaks
+- Reduced excessive vertical padding from `py-24` down to `py-8 lg:py-16` to comfortably fit the form within standard desktop screens.
+- Standardized spacing across the form grid using tailored `space-y-5` and `gap-6` parameters to maintain clean vertical rhythm.
+
+## Input Styling & Neon Focus States
+- All input fields and dropdowns have been structurally revamped with `bg-transparent`, subtle `border-white/20`, and `rounded-lg` parameters for a premium dark mode aesthetic.
+- Added comprehensive interactive feedback: clicking an input now triggers a distinct neon glow effect (`focus:border-purple-400`, `focus:ring-purple-500/40`, and `focus:shadow`).
+- Labels were updated to `block mb-2 text-sm text-white/70`, dramatically improving legibility and proximity relation to their respective inputs.
+- The submit button's position was enhanced by injecting an `mt-8` margin to visually separate it from the guarantee block.
+
+**Confirmation**: Zero structural UI, text content, or routing logic was removed or altered. The form fields are now beautifully responsive, highly accessible, and visually stunning.

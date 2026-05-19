@@ -1,0 +1,41 @@
+# Stage 0: Benefits Page Structuring
+
+## Folder Structure Created
+`src/`
+  `components/`
+    `benefits/`
+      `- BenefitsHeroSection.jsx`
+      `- ProgramStructureSection.jsx`
+      `- TimelineSection.jsx`
+      `- LearningExperienceSection.jsx`
+      `- MentorshipSection.jsx`
+      `- CertificateSection.jsx`
+      `- AffordabilitySection.jsx`
+      `- FinalCTASection.jsx`
+  `pages/`
+    `- Benefits.jsx`
+
+## Sections Mapped
+1.  **BenefitsHeroSection**: "Everything You Need to Become Job-Ready"
+2.  **ProgramStructureSection**: "A Clear Path from Learning to Getting Hired"
+3.  **TimelineSection**: "3-Month Structured Program"
+4.  **LearningExperienceSection**: "Master Your Craft" (Bento grid)
+5.  **MentorshipSection**: "Guidance That Keeps You on Track"
+6.  **CertificateSection**: Certificate preview section
+7.  **AffordabilitySection**: Pricing + ₹2499 section
+8.  **FinalCTASection**: "Start Your Journey Today"
+
+## Shared Components Used
+-   `src/components/shared/Navbar.jsx` (with `activePage="benefits"`)
+-   `src/components/shared/Footer.jsx` (with `activePage="benefits"`)
+No new Navbar or Footer files were created.
+
+## Confirmation
+-   **No UI Changes**: The React components preserve the original HTML layout perfectly.
+-   **Complex Layouts Preserved**: 
+    - The Bento Grid structure in `LearningExperienceSection` is intact.
+    - The Timeline structure in `TimelineSection` is intact.
+    - The Certificate design in `CertificateSection` remains visually equivalent.
+-   All `class` attributes were updated to `className`.
+-   Empty `<div class="hidden md:block absolute ..."></div>` and other semantic structures have been strictly maintained for layout integrity.
+-   Top level `<div className="bg-surface text-on-surface font-body min-h-screen flex flex-col antialiased selection:bg-primary-dim selection:text-on-primary">` has been added to `Benefits.jsx` to apply the body-level classes defined in the HTML.

@@ -1,0 +1,20 @@
+# Stage 1: Routing & Application Wiring
+
+## Routes Created
+React Router (`react-router-dom`) has been integrated to enable a seamless Single Page Application (SPA) experience.
+The following routes are now active in `main.jsx`:
+- `/` → Home Page
+- `/courses` → Courses Page
+- `/benefits` → Benefits Page
+- `/about` → About Page
+- `/register` → Registration Page
+
+## Components Updated
+-   **Navbar** (`src/components/shared/Navbar.jsx`):
+    - Replaced all standard anchor tags (`<a>`) with React Router `<Link>` components to prevent page reloads.
+    - Wrapped primary Call-To-Action buttons ("Register Now" and "Start Learning") with `<Link to="/register">` for smooth transitions.
+    - Retained the existing `activePage` prop logic to automatically highlight the current page's link flawlessly.
+
+## Confirmation
+-   **No UI Changes**: Client-side routing was implemented cleanly without modifying any Tailwind classes, altering layout structures, or breaking grid effects.
+-   **SPA Behavior**: Clicking links navigates to the respective views instantly without causing browser reloads.
